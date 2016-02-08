@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>PhonySession</id>
+        <version>1.0.0</version>
+        <title>Phony Session Library</title>
+        <authors>Mike Hingley</authors>
+        <owners>titaniumbunker,computa_mike</owners>
+        <licenseUrl>https://raw.githubusercontent.com/TitaniumBunker/PhonySession/master/LICENSE.md</licenseUrl>
+        <projectUrl>https://github.com/TitaniumBunker/PhonySession</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/TitaniumBunker/PhonySession/master/disguise64x64.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>PhonySession allows a developer to create a fake session for testing a controller.  Any controller code that relies on a Request object will typically fail under test conditions.  This library allows a fake connection to be created.</description>
+        <releaseNotes>"Disguise" logo by Helen Tseng is licensed under CC BY 3.0 US - downloaded from https://thenounproject.com/term/disguise/24240/</releaseNotes>
+        <dependencies>
+            <group targetFramework=".NETFramework4.0">
+                <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+                <dependency id="Microsoft.AspNet.Razor" version="3.2.3" />
+                <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
+                <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+            </group>
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Web" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="bin\Debug\FonySession.dll" target="lib\net45\FonySession.dll" />
+    </files>
+</package>
