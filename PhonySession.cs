@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -55,6 +56,14 @@ namespace TitaniumBunker.PhonySession
                 return (int)_inputStream.Length;
             }
         }
+
+        public static explicit operator HttpPostedFile (PhonyUploadFile o)
+        {
+            var constructorInfo = typeof(HttpPostedFile).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)[0];
+            var obj = (HttpPostedFile)constructorInfo
+            .Invoke(new object[] { o.FileName, o.ContentType, o.InputStream });
+            return obj;
+        }
     }
     public class FonyHttpContext : HttpContextBase
     {
@@ -104,14 +113,9 @@ namespace TitaniumBunker.PhonySession
     public class FonyFileCollection : HttpFileCollectionBase
     {
         private   NameValueCollection keyCollection = new NameValueCollection();
-        Dictionary<string,HttpPostedFileBase> _files = new Dictionary<string,HttpPostedFileBase>();
-        public override string[] AllKeys
-        {
-            get
-            {
-                return _files.Keys.ToArray() ;
-            }
-        }
+        List<HttpPostedFileBase> _files = new List<HttpPostedFileBase>();
+        //Dictionary <string,HttpPostedFileBase> _files = new Dictionary<string,HttpPostedFileBase>();
+
         public override void CopyTo(Array dest, int index)
         {
             var x = _files.ToArray();
@@ -130,13 +134,10 @@ namespace TitaniumBunker.PhonySession
         }
         public override HttpPostedFileBase Get(int index)
         {
-            var foo = _files.ToArray()[index];
-            return _files[foo.Key];
+            return _files[index];
+
         }
-        public override string GetKey(int index)
-        {
-            return _files.ToArray()[index].Key;
-        }
+
         public override KeysCollection Keys
         {
             get { return keyCollection.Keys; }
@@ -145,15 +146,16 @@ namespace TitaniumBunker.PhonySession
         {
             get
             {
-                var key = _files.Keys.ToArray()[index];
-                return _files[key];
+                return _files[index];
              }
         }
 
 
+
+
         public void AddFonyFile(PhonyUploadFile file)
         {
-            _files.Add(file.FileName,file );
+            _files.Add(file );
         }
     }
     public class FonyKeyCollection  : ICollection, IEnumerable

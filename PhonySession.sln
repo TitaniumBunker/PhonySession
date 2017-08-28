@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonySession", "PhonySession.csproj", "{88CA16A4-C2FF-490C-AF05-A147E2E87C8B}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E634B8
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonySessionTests", "PhonySessionTests\PhonySessionTests.csproj", "{A87182E6-969C-4BF9-B1E7-C0B66FDC4A9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +24,10 @@ Global
 		{88CA16A4-C2FF-490C-AF05-A147E2E87C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88CA16A4-C2FF-490C-AF05-A147E2E87C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88CA16A4-C2FF-490C-AF05-A147E2E87C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A87182E6-969C-4BF9-B1E7-C0B66FDC4A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A87182E6-969C-4BF9-B1E7-C0B66FDC4A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A87182E6-969C-4BF9-B1E7-C0B66FDC4A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A87182E6-969C-4BF9-B1E7-C0B66FDC4A9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
